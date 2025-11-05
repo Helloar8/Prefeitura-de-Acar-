@@ -1,313 +1,71 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Prefeitura de Acari - Perguntas Frequentes</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Segoe UI", Arial, sans-serif;
-    }
-    
-    :root {
-      --azul-principal: #011024;
-      --azul-escuro: #04070a;
-      --laranja: #f57c00;
-      --cinza-claro: #f4f6fa;
-      --cinza-escuro: #555;
-      --branco: #ffffff;
-    }
-    
-    body {
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      background-color: var(--cinza-claro);
-      color: #333;
-    }
-    
-    /* Header */
-    header {
-      background-color: var(--azul-principal);
-      color: var(--branco);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 30px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-    
-    .logo {
-      width: 80px;
-      height: 80px;
-      background-color: var(--branco);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      color: var(--azul-principal);
-      border: 2px solid var(--laranja);
-      box-shadow: 0 0 0 3px var(--branco);
-    }
-    
-    .titulo-prefeitura {
-      display: flex;
-      flex-direction: column;
-    }
-    
-    .titulo-prefeitura h1 {
-      font-size: 22px;
-      font-weight: 700;
-    }
-    
-    .titulo-prefeitura h2 {
-      font-size: 16px;
-      font-weight: 400;
-      margin-top: 2px;
-    }
-    
-    .header-right {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-    
-    .search-container {
-      position: relative;
-    }
-    
-    .search-container input {
-      width: 250px;
-      padding: 8px 12px;
-      padding-right: 35px;
-      border-radius: 20px;
-      border: none;
-      font-size: 14px;
-    }
-    
-    .search-icon {
-      position: absolute;
-      right: 12px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--cinza-escuro);
-    }
-    
-    header nav a {
-      color: var(--branco);
-      text-decoration: none;
-      margin-left: 20px;
-      font-weight: 500;
-      padding: 5px 0;
-      position: relative;
-      transition: color 0.3s;
-    }
-    
-    header nav a:hover {
-      color: var(--laranja);
-    }
-    
-    header nav a.active {
-      color: var(--laranja);
-    }
-    
-    header nav a.active::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background-color: var(--laranja);
-    }
-    
-    /* Main content */
-    main {
-      flex: 1;
-      padding: 40px 60px;
-    }
-    
-    .titulo {
-      font-size: 36px;
-      font-weight: 800;
-      color: var(--azul-principal);
-      margin-bottom: 40px;
-      text-align: center;
-      position: relative;
-    }
-    
-    .titulo::after {
-      content: '';
-      display: block;
-      width: 80px;
-      height: 4px;
-      background-color: var(--laranja);
-      margin: 15px auto;
-      border-radius: 2px;
-    }
-    
-    /* Estilos para as perguntas frequentes */
-    .faq-container {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    
-    .pergunta-item {
-      background-color: var(--branco);
-      border-radius: 8px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.08);
-      transition: transform 0.2s, box-shadow 0.2s;
-      border-left: 4px solid var(--laranja);
-    }
-    
-    .pergunta-item:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.12);
-    }
-    
-    .pergunta-item h3 {
-      color: var(--azul-escuro);
-      font-size: 18px;
-      margin-bottom: 12px;
-      line-height: 1.4;
-    }
-    
-    .pergunta-item p {
-      color: var(--cinza-escuro);
-      font-size: 15px;
-      line-height: 1.5;
-    }
-    
-    /* Footer */
-    footer {
-      background-color: var(--azul-principal);
-      color: var(--branco);
-      text-align: center;
-      padding: 20px 0;
-      margin-top: auto;
-    }
-    
-    footer p {
-      margin-bottom: 5px;
-    }
-    
-    .footer-links {
-      margin-top: 10px;
-    }
-    
-    .footer-links a {
-      color: var(--branco);
-      text-decoration: none;
-      margin: 0 10px;
-      font-size: 14px;
-    }
-    
-    .footer-links a:hover {
-      text-decoration: underline;
-    }
-    
-    /* Responsividade */
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        padding: 15px;
-        gap: 15px;
-      }
-      
-      .header-right {
-        width: 100%;
-        justify-content: space-between;
-      }
-      
-      .search-container input {
-        width: 180px;
-      }
-      
-      main {
-        padding: 20px;
-      }
-      
-      .pergunta-item {
-        padding: 15px;
-      }
-    }
-  </style>
-</head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prefeitura de Acari - Perguntas Frequentes</title>
+  <link rel="stylesheet" href="style.css"> </head>
 <body>
-  <header>
-    <div class="logo-container">
-      <div class="logo">ACARI</div>
-      <div class="titulo-prefeitura">
-        <h1>PREFEITURA MUNICIPAL</h1>
-        <h2>Acari - Rio Grande do Norte</h2>
-      </div>
-    </div>
-    
-    <div class="header-right">
-      <div class="search-container">
-        <input type="text" placeholder="Pesquisar...">
-        <span class="search-icon">🔍</span>
-      </div>
-      
-      <nav>
-        <a href="index.html">Início</a>
-        <a href="faq.html" class="active">Perguntas Frequentes</a>
-        <a href="manual.html">Manual</a>
-      </nav>
-    </div>
-  </header>
+  <header>
+    <div class="logo-container">
+      <div class="logo">ACARI</div>       <div class="titulo-prefeitura">
+        <h1>PREFEITURA MUNICIPAL</h1>
+        <h2>Acari - Rio Grande do Norte</h2>
+      </div>
+    </div>
+    
+    <div class="header-right">
+      <div class="search-container">
+        <input type="text" placeholder="Pesquisar...">
+        <span class="search-icon">🔍</span>
+      </div>
+      
+      <nav>
+        <a href="index.html">Início</a>
+        <a href="faq.html" class="active">Perguntas Frequentes</a>         <a href="manual.html">Manual</a>
+      </nav>
+    </div>
+  </header>
 
-  <main class="faq">
-    <h1 class="titulo">Perguntas Frequentes</h1>
-    
-    <div class="faq-container">
-      <div class="pergunta-item">
-        <h3>Quem está obrigado a prestar informações?</h3>
-        <p>Os órgãos públicos integrantes da administração direta dos Poderes Executivo, Legislativo e Judiciário.</p>
-      </div>
-      
-      <div class="pergunta-item">
-        <h3>Como posso solicitar informações não disponíveis no portal?</h3>
-        <p>Você pode entrar em contato com a Ouvidoria Municipal através do telefone (84) 3471-XXXX ou pelo e-mail ouvidoria@acari.rn.gov.br.</p>
-      </div>
-      
-      <div class="pergunta-item">
-        <h3>Quais são as informações que serão disponibilizadas?</h3>
-        <p>Serão disponibilizadas informações de interesse público, exceto aquelas protegidas por sigilo legal.</p>
-      </div>
-      
-      <div class="pergunta-item">
-        <h3>Onde posso consultar editais de licitação?</h3>
-        <p>Os editais de licitação estão disponíveis na seção "Transparência" do portal, ou no quadro de avisos da Prefeitura Municipal.</p>
-      </div>
-      
-      <div class="pergunta-item">
-        <h3>Como faço para agendar serviços municipais?</h3>
-        <p>O agendamento de serviços pode ser feito através do portal, na seção "Serviços Online", ou presencialmente no protocolo geral da Prefeitura.</p>
-      </div>
-    </div>
-  </main>
+  <main class="faq">
+    <h1 class="titulo">Perguntas Frequentes</h1>
+    
+    <div class="faq-container">
+      <div class="pergunta-item">
+        <h3>Quem está obrigado a prestar informações?</h3>
+        <p>Os órgãos públicos integrantes da administração direta dos Poderes Executivo, Legislativo e Judiciário.</p>
+      </div>
+      
+      <div class="pergunta-item">
+        <h3>Como posso solicitar informações não disponíveis no portal?</h3>
+        <p>Você pode entrar em contato com a Ouvidoria Municipal através do telefone (84) 3471-XXXX ou pelo e-mail ouvidoria@acari.rn.gov.br.</p>
+      </div>
+      
+      <div class="pergunta-item">
+        <h3>Quais são as informações que serão disponibilizadas?</h3>
+        <p>Serão disponibilizadas informações de interesse público, exceto aquelas protegidas por sigilo legal.</p>
+      </div>
+      
+      <div class="pergunta-item">
+        <h3>Onde posso consultar editais de licitação?</h3>
+        <p>Os editais de licitação estão disponíveis na seção "Transparência" do portal, ou no quadro de avisos da Prefeitura Municipal.</p>
+      </div>
+      
+      <div class="pergunta-item">
+        <h3>Como faço para agendar serviços municipais?</h3>
+        <p>O agendamento de serviços pode ser feito através do portal, na seção "Serviços Online", ou presencialmente no protocolo geral da Prefeitura.</p>
+      </div>
+    </div>
+  </main>
 
-  <footer>
-    <p>© 2025 Prefeitura Municipal de Acari - Rio Grande do Norte</p>
-    <p>Rua Cel. Antônio Basílio, 100 - Centro - Acari/RN - CEP: 59370-000</p>
-    <div class="footer-links">
-      <a href="#">Acesso à Informação</a>
-      <a href="#">Transparência</a>
-      <a href="#">Contato</a>
-    </div>
-  </footer>
+  <footer>
+    <p>© 2025 Prefeitura Municipal de Acari - Rio Grande do Norte</p>
+    <p>Rua Cel. Antônio Basílio, 100 - Centro - Acari/RN - CEP: 59370-000</p>
+    <div class="footer-links">
+      <a href="#">Acesso à Informação</a>
+      <a href="#">Transparência</a>
+      <a href="#">Contato</a>
+    </div>
+  </footer>
 </body>
 </html>
