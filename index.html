@@ -23,7 +23,7 @@
             </div>
         </div>
         
-        <div class="menu-toggle" id="menu-toggle">☰</div>
+        <div class="menu-toggle">☰</div>
         
     </header>
 
@@ -35,7 +35,7 @@
 
         <section class="atalhos-principais">
             <a href="faq.html" class="atalho-botao">Perguntas Frequentes</a>
-            <a href="http://datacenter2.aossoftware.com.br:8173/transparencia_PREFEITURAACARI/Default.aspx?AcessoIndividual=lnkESIC" class="atalho-botao">Solicitar Informação</a>
+            <a href="#" class="atalho-botao">Solicitar Informação</a>
             <a href="#" class="atalho-botao">Portal da Transparência</a>
             <a href="#" class="atalho-botao">Acompanhe sua Solicitação</a>
             <a href="#" class="atalho-botao">Carta de Serviços</a>
@@ -132,42 +132,5 @@
             <a href="#">Contato</a>
         </div>
     </footer>
-
-    <div id="mobile-menu" class="menu-overlay">
-        <div class="menu-overlay-header">
-            <h2>Menu</h2>
-            <span id="close-menu" class="close-btn">&times;</span>
-        </div>
-        <nav class="menu-overlay-nav">
-            <a href="#">A PREFEITURA</a>
-            <a href="#">SECRETARIAS</a>
-            <a href="#">NOTÍCIAS</a>
-            <a href="#">SERVIÇOS ▼</a> 
-            <a href="#">TRANSPARÊNCIA</a>
-            <a href="#">CONTATO</a>
-            <a href="#">DIÁRIO OFICIAL</a>
-        </nav>
-    </div>
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const closeMenu = document.getElementById('close-menu');
-
-        // Abre o menu
-        if (menuToggle && mobileMenu) {
-            menuToggle.addEventListener('click', function() {
-                mobileMenu.classList.add('active');
-            });
-        }
-
-        // Fecha o menu
-        if (closeMenu && mobileMenu) {
-            closeMenu.addEventListener('click', function() {
-                mobileMenu.classList.remove('active');
-            });
-        }
-    });
-    </script>
-    </body>
+</body>
 </html>
