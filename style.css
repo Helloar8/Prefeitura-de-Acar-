@@ -129,9 +129,11 @@ main {
 /* --- Estilos da HOME (index.html) --- */
 
 .destaque {
-  background-color: #a0a0a0; /* Cor cinza escura para simular o placeholder de foto */
-  background-image: none;
+  background-image: url(https://www.encantosdorn.com.br/uploads/fotos/180320192035308c7c4d0b960db8f6e268b2b419dcc151.png); /* Substitua pelo caminho real da imagem */
+  background-position: center top 40%;
   min-height: 250px;
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   flex-direction: column;
   justify-content: center;
